@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用原生js 发送  Ajax-GET请求</title>
+</head>
+<body>
+    <h1>该页面时测试原生js发送Ajax_GET请求</h1>
+    <button id="btn">点击发送Ajax_GET请求</button>
+
+    <div id="con"></div>
+    <script type="text/javascript">
+        
+        let btn = document.getElementById('btn')
+        btn.addEventListener('click',function(){
+            let xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState===4&&xhr.status===200){
+                    let con = document.getElementById('con')
+                    con.innerHTML = xhr.response
+                    console.log(xhr.response)
+                }
+            }
+
+            xhr.open('GET','http://localhost:3000/testGET')
+            xhr.send()
+        })
+        //实例化一个XMLHttpRequest
+        //绑定一个事件监听，事件名 onreadystatechange
+        //指定发送请求的方式  地址   携带 的参数
+        //发送请求
+
+
+    </script>
+</body>
+</html>

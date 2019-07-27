@@ -36,9 +36,12 @@
     el:'#test',
     data:{
       msg:'VUE',
-      seen:false
+      seen:true
     }
   })
+  setTimeout(()=>{
+    vm.msg = '张阿稳'
+  },2000)
 </script>
 </body>
 </html>
