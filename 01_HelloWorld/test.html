@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <title>01_HelloWorld</title>
 </head>
+<style>
+  .big{
+    font-size: 30px;
+    color: red;
+  }
+</style>
 <body>
 
 <!--
@@ -22,14 +28,15 @@
 <div id="test">
   <input type="text" v-model='msg'>
   <p>hello{{msg}}</p>
+  <span v-if="seen" class="big">你能看见我吗</span>
 </div>
 <script src="../js/vue.js"></script>
 <script>
   const vm = new Vue({
     el:'#test',
     data:{
-      msg:'VUE'
-
+      msg:'VUE',
+      seen:false
     }
   })
 </script>
