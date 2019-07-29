@@ -20,12 +20,26 @@
   v-cloak : 使用它防止闪现表达式, 与css配合: [v-cloak] { display: none }
 -->
 <div id="example">
-
+  <p>{{message}}</p>
+  <p v-text="message">nice</p>
+  <p v-html="message">perfect</p>
+  <p ref = 'content'>beautiful</p>
+  <button @click='hint'>点我</button>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
-
+  new Vue({
+    el:'#example',
+    data:{
+      message:'<a href="http://www.baidu.com">超链接</a>'
+    },
+    methods:{
+      hint:function(){
+        alert(this.$refs.content.innerHTML)
+      }
+    }
+  })
 </script>
 </body>
 </html>
