@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+        <button @click="destroyVM">destroy VM</button>
+        <p v-if="isShow">destroyVM</p>
+        <span>{{msg}}</span>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script type="text/javascript">
+        const vm = new Vue({
+            el:'#demo',
+            data:{
+                isShow:true,
+                msg:'abc'
+            },
+            mounted() {
+                console.log('mounted()')
+                this.intervalId = setInterval(()=>{
+                    console.log('循环定时器开启')
+                    this.isShow = !this.isShow
+                },1000)
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate()')
+            },
+            updated() {
+                console.log('updated()')
+            },
+            beforeDestroy() {
+                console.log('beforeDestroy()')
+                clearInterval(this.intervalId)
+            },
+            destroyed() {
+                console.log('none')
+            },
+            methods:{
+                destroyVM:function(){
+                    this.$destroy()
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
