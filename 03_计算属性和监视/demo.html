@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='demo'>
+        姓：<input type="text" placeholder="Firse Name"><br/>
+        名：<input type="text" placeholder="Last Name"><br/>
+       姓名一（单项）： <input type="text" placeholder="Full Name1"><br/>
+       姓名二（单项）：<input type="text" placeholder="Full Name2"><br/>
+       姓名三（双项）：<input type="text" placeholder="Full Name3"><br/>
+    </div>
+    <script src="../js//vue.js"></script>
+    <script type="text/javascript">
+        // const p = {
+        //     firstName:'A',
+        //     lastName:'B'
+        // }
+
+
+        // Object.defineProperties(p,'fullName',{
+        //     get:function(){
+        //         return this.firstName + '-' + 'this.lastName'
+        //     },
+        //     set:function(value){
+        //         const names = value.split('-')
+        //         this.firstName = names[0]
+        //         this.lastName = names[1]
+        //     }
+        // })
+
+
+        // p.firstName = 'C'
+        // p.lastName = 'D'
+        // p.fullName = 'E-F'
+
+
+        function fun1(){
+            var a = 2
+            function fun2(){
+                a++
+                console.log(a)
+            }
+            return fun2
+        }
+
+        var f = fun1()
+        f()
+        f()
+        f=null
+    </script>
+</body>
+</html>

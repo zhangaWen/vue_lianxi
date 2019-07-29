@@ -31,12 +31,39 @@
 
 <div id="app">
   <h2>1. 双大括号表达式</h2>
-
+  <p>{{haha}}</p>
   <h2>2. 指令一: 强制数据绑定</h2>
-
+  <a href="url">什么都不是</a>
+  <a v-bind:href="url">百度</a>
+  <a :href="url2">淘宝</a>
   <h2>3. 指令二: 绑定事件监听</h2>
 
+  <button v-on:click='test1'>按钮</button>
+  <button @click='test2'>nice</button>
+  <button @click='test03("dududu")'> perfect</button>
 </div>
+<script src="../js/vue.js"></script>
+<script type="text/javascript">
+  const vm = new Vue({
+    el:'#app',
+    data:{
+      haha:'这是大括号---插值的方式',
+      url:'http://www.baidu.com',
+      url2:'http://www.taobao.com'
 
+    },
+    methods: {
+      test1:function(e){
+        alert(e.target.innerHTML)
+      },
+      test2:function(e){
+        alert(e.target.innerText) 
+      },
+      test03:function(vale){
+        alert(vale)
+      }
+    },
+  })
+</script>
 </body>
 </html>

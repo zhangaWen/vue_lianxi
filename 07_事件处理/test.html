@@ -23,16 +23,47 @@
 <div id="example">
 
   <h2>1. 绑定监听</h2>
+  <button @click="test1">按钮1</button>
+  <button @click="test2('哈哈哈')">按钮2</button>
+  <button @click="test3('哒哒哒',$event)">按钮3</button>
+  <h2>2.  事件修饰符</h2>
+  <a href="http://www.taobao.com" @click.prevent>淘宝</a>
 
-  <h2>2. 事件修饰符</h2>
-
+  <div style="width: 400px;height:400px;background:black" @click.stop='test4'>
+    <div style="width: 200px;height:200px;background:white;margin: 20px auto" @click.stop='test5'>nice</div>
+  </div>
   <h2>3. 按键修饰符</h2>
-
+  <input type="text" v-model="msg" @keyup.enter='test6'>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
-
+  const vm = new Vue({
+    el:'#example',
+    data:{
+      msg:''
+    },
+    methods: {
+      test1:function(event){
+        alert(event.target.innerHTML)
+      },
+      test2:function(msg){
+        alert(msg)
+      },
+      test3:function(msg,event){
+        alert(msg+'===='+event.target.innerHTML)
+      },
+      test4:function(){
+        console.log('父元素事件调用')
+      },
+      test5:function(){
+        console.log('子元素事件调用')
+      },
+      test6:function(){
+        alert(this.msg)
+      }
+    },
+  })
 </script>
 </body>
 </html>
