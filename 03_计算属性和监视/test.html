@@ -46,7 +46,7 @@
         set:function(value){
           console.log('fullName3()  set()', value)
           const names = value.split('-')
-          this.firstName = name[0]
+          this.firstName = names[0]
           this.lastName = names[1]
 
         }
@@ -60,7 +60,7 @@
   })
   vm.$watch('lastName',function(value){
     console.log('lastName',value)
-    this.firstName2 = this.firstName  + '-' + value
+    this.fullName2 = this.firstName  + '-' + value
     
   })
 </script>
